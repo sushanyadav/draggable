@@ -49,10 +49,6 @@ export const App = () => {
 
     setPosition(targetPosition as Position);
     setIsAnimating(false);
-    setTimeout(() => {
-      xPos.set(0);
-      yPos.set(0);
-    }, 0);
   };
 
   const dismissPlayer = () => {
@@ -107,6 +103,10 @@ export const App = () => {
                 bottom: 0.5,
                 left: 0.5,
                 right: 0.5,
+              }}
+              onMeasureDragConstraints={() => {
+                xPos.set(0);
+                yPos.set(0);
               }}
               ref={draggedItem}
               dragConstraints={constraintsRef}
